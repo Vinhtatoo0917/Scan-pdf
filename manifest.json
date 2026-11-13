@@ -1,0 +1,17 @@
+{
+  "name": "DocScan Pro",
+  "short_name": "DocScan",
+  "description": "Quét giấy tờ, tài liệu A4 nhanh, mượt và nắn thẳng chuẩn PDF",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#0f172a",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%232563eb'><rect width='512' height='512' rx='100' fill='%230f172a'/><path d='M160 96h192a32 32 0 0 1 32 32v256a32 32 0 0 1-32 32H160a32 32 0 0 1-32-32V128a32 32 0 0 1 32-32z' fill='none' stroke='%233b82f6' stroke-width='32'/><line x1='96' y1='256' x2='416' y2='256' stroke='%2360a5fa' stroke-width='24' stroke-dasharray='16 8'/><path d='M96 160V96h64m256 0h-64v64M96 352v64h64m256 0h-64v-64' fill='none' stroke='%2338bdf8' stroke-width='32' stroke-linecap='round'/></svg>",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}

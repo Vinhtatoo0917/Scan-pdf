@@ -1,0 +1,230 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f4f8;
+  color: #2d3748;
+  min-height: 100vh;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(135deg, #2b6cb0, #2c5282);
+  color: white;
+  text-align: center;
+  padding: 24px 16px;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+header p {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* MAIN */
+main {
+  max-width: 760px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+
+section {
+  background: white;
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+section h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #2b6cb0;
+  border-bottom: 2px solid #ebf4ff;
+  padding-bottom: 10px;
+}
+
+/* UPLOAD AREA */
+.upload-area {
+  border: 2px dashed #90cdf4;
+  border-radius: 10px;
+  padding: 40px 20px;
+  text-align: center;
+  background: #ebf8ff;
+  transition: background 0.2s;
+}
+
+.upload-area:hover {
+  background: #bee3f8;
+}
+
+.upload-area p {
+  margin-bottom: 14px;
+  color: #4a5568;
+  font-size: 0.95rem;
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 2px solid #2b6cb0;
+  background: white;
+  color: #2b6cb0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin: 6px;
+}
+
+.btn:hover {
+  background: #ebf4ff;
+}
+
+.btn-primary {
+  background: #2b6cb0;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #2c5282;
+}
+
+.btn-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+/* CANVAS */
+.canvas-wrapper {
+  width: 100%;
+  overflow: auto;
+  text-align: center;
+  margin-bottom: 16px;
+  background: #edf2f7;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+canvas {
+  max-width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+/* VIDEO CAMERA */
+#camera-preview {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  margin: 14px auto;
+  display: block;
+  background: #000;
+}
+
+/* CONTROLS / FILTER */
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.controls label {
+  font-size: 0.9rem;
+  color: #4a5568;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.controls input[type="range"] {
+  width: 100%;
+  accent-color: #2b6cb0;
+}
+
+.filter-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.preset-btn {
+  font-size: 0.82rem;
+  padding: 7px 14px;
+}
+
+.preset-btn.active {
+  background: #2b6cb0;
+  color: white;
+}
+
+/* OCR */
+#ocr-result {
+  width: 100%;
+  margin-top: 14px;
+  padding: 12px;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  resize: vertical;
+  font-family: inherit;
+  color: #2d3748;
+}
+
+/* SPINNER */
+#ocr-loading {
+  text-align: center;
+  padding: 20px;
+  color: #4a5568;
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 4px solid #bee3f8;
+  border-top-color: #2b6cb0;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 10px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* EXPORT */
+.export-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.export-preview {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  header h1 { font-size: 1.5rem; }
+  section { padding: 20px 14px; }
+  .btn { padding: 9px 14px; font-size: 0.85rem; }
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WebScanner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>📄 WebScanner</h1>
+    <p>Quét tài liệu, nhận dạng chữ, xuất PDF ngay trên trình duyệt</p>
+  </header>
+
+  <main>
+    <!-- Bước 1: Upload ảnh -->
+    <section id="upload-section">
+      <h2>Bước 1: Chọn ảnh hoặc chụp từ camera</h2>
+      <div class="upload-area" id="drop-zone">
+        <p>📂 Kéo thả ảnh vào đây hoặc</p>
+        <label class="btn" for="file-input">Chọn file ảnh</label>
+        <input type="file" id="file-input" accept="image/*" capture="environment" hidden />
+        <button class="btn" id="camera-btn">📷 Mở Camera</button>
+      </div>
+      <video id="camera-preview" autoplay playsinline hidden></video>
+      <button id="capture-btn" class="btn btn-primary" hidden>📸 Chụp ảnh</button>
+    </section>
+
+    <!-- Bước 2: Cắt viền -->
+    <section id="crop-section" hidden>
+      <h2>Bước 2: Cắt & chỉnh viền tài liệu</h2>
+      <div class="canvas-wrapper">
+        <canvas id="crop-canvas"></canvas>
+      </div>
+      <div class="btn-group">
+        <button class="btn" id="reset-crop-btn">↩ Chụp lại</button>
+        <button class="btn btn-primary" id="apply-crop-btn">✅ Xác nhận cắt</button>
+      </div>
+    </section>
+
+    <!-- Bước 3: Chỉnh ảnh -->
+    <section id="filter-section" hidden>
+      <h2>Bước 3: Chỉnh sửa ảnh</h2>
+      <div class="canvas-wrapper">
+        <canvas id="filter-canvas"></canvas>
+      </div>
+      <div class="controls">
+        <label>☀️ Độ sáng
+          <input type="range" id="brightness" min="0" max="200" value="100" />
+        </label>
+        <label>🔆 Tương phản
+          <input type="range" id="contrast" min="0" max="200" value="100" />
+        </label>
+        <label>🎨 Độ bão hòa
+          <input type="range" id="saturation" min="0" max="200" value="100" />
+        </label>
+        <div class="filter-presets">
+          <button class="btn preset-btn" data-preset="original">Gốc</button>
+          <button class="btn preset-btn" data-preset="document">Tài liệu</button>
+          <button class="btn preset-btn" data-preset="grayscale">Trắng đen</button>
+          <button class="btn preset-btn" data-preset="enhance">Nét cao</button>
+        </div>
+      </div>
+      <div class="btn-group">
+        <button class="btn" id="back-to-crop-btn">↩ Quay lại</button>
+        <button class="btn btn-primary" id="apply-filter-btn">✅ Tiếp theo</button>
+      </div>
+    </section>
+
+    <!-- Bước 4: OCR -->
+    <section id="ocr-section" hidden>
+      <h2>Bước 4: Nhận dạng chữ (OCR)</h2>
+      <div class="canvas-wrapper">
+        <canvas id="ocr-preview-canvas"></canvas>
+      </div>
+      <button class="btn btn-primary" id="run-ocr-btn">🔍 Nhận dạng chữ</button>
+      <div id="ocr-loading" hidden>
+        <div class="spinner"></div>
+        <p>Đang nhận dạng...</p>
+      </div>
+      <textarea id="ocr-result" placeholder="Kết quả nhận dạng sẽ hiện ở đây..." rows="8" hidden></textarea>
+      <div class="btn-group" id="ocr-actions" hidden>
+        <button class="btn" id="copy-text-btn">📋 Sao chép chữ</button>
+        <button class="btn btn-primary" id="go-export-btn">➡️ Xuất file</button>
+      </div>
+    </section>
+
+    <!-- Bước 5: Xuất file -->
+    <section id="export-section" hidden>
+      <h2>Bước 5: Xuất file</h2>
+      <div class="export-preview">
+        <canvas id="export-canvas"></canvas>
+      </div>
+      <div class="export-options">
+        <button class="btn btn-primary" id="export-pdf-btn">📄 Xuất PDF</button>
+        <button class="btn" id="export-jpg-btn">🖼️ Xuất JPG</button>
+        <button class="btn" id="export-png-btn">🖼️ Xuất PNG</button>
+      </div>
+      <button class="btn" id="scan-again-btn">🔄 Quét tài liệu mới</button>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/4.1.1/tesseract.min.js"></script>
+  <script src="scanner.js"></script>
+  <script src="crop.js"></script>
+  <script src="filter.js"></script>
+  <script src="ocr.js"></script>
+  <script src="export.js"></script>
+</body>
+</html>
